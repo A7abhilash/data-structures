@@ -1,3 +1,3 @@
-# Data Structures
+# Data Structures - C
 
-> > Code files are under coding!
+> Code files are under coding!
