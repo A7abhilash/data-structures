@@ -42,12 +42,12 @@ int stackCount(stack S){
     return S->top+1;
 }
 
-int peek(stack S){
+void peek(stack S){
     if(isEmpty(S)){
         printf("Stack is empty\n");
-        return 0;
+        return;
     }
-    return S->arr[S->top];
+    printf("Top of stack:%d\n",S->arr[S->top]);
 }
 
 void display(stack S){
@@ -78,7 +78,7 @@ int main(){
             case 1: S=push(S);break;
             case 2: S=pop(S);break;
             case 3: display(S);break;
-            case 4: printf("Top of stack:%d\n" ,peek(S));break;
+            case 4: peek(S);break;
             case 5: printf("Total no. of items in stack:%d\n",stackCount(S));break;
             default:printf("Enter proper option\n");
         }
