@@ -1,8 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-const int SIZE =5;
-
 struct QUEUE{
     int items[5];
     int front,rear;
@@ -10,7 +8,7 @@ struct QUEUE{
 typedef struct QUEUE queue;
 
 queue enqueue(queue Q){
-    if(Q.rear==SIZE-1){
+    if(Q.rear==4){
         printf("Queue is full\n");
     }else{
         printf("Enter the new item:");
