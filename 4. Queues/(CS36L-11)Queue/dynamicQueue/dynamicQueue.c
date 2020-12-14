@@ -12,7 +12,7 @@ int SIZE =2;
 queue enqueue(queue Q){
     if(Q->rear==SIZE-1){
         SIZE*=2;
-        Q->items=(int*)realloc(Q->items,SIZE);
+        Q->items=(int*)realloc(Q->items,SIZE*sizeof(int));
         printf("Reallocated the queue size\n");
     }
     printf("Enter the new item:");
@@ -49,7 +49,7 @@ void displayQueue(queue Q){
 int main(){
     int choice;
     queue Q = (queue)malloc(sizeof(struct QUEUE));
-    Q->items = (int*)malloc(SIZE);
+    Q->items = (int*)malloc(SIZE*sizeof(int));
     Q->front=0;Q->rear=-1;
     while(1){
         printf("\n0.Exit\n1.Enqueue\n2.Dequeue\n3.Display Queue\nEnter your choice:");

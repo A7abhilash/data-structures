@@ -7,12 +7,12 @@ struct QUEUE{
 };
 typedef struct QUEUE* queue;
 
-int SIZE =5;
+int SIZE =2;
 
 queue insertRear(queue Q){
     if(Q->rear==SIZE-1){
         SIZE*=2;
-        Q->items=(int*)realloc(Q->items,SIZE);
+        Q->items=(int*)realloc(Q->items,SIZE*sizeof(int));
         printf("Reallocated the queue size\n");
     }
     printf("Enter the new item:");
@@ -24,7 +24,7 @@ queue insertRear(queue Q){
 queue insertFront(queue Q){
     if(Q->front==0 && Q->rear==4){
         SIZE*=2;
-        Q->items=(int*)realloc(Q->items,SIZE);
+        Q->items=(int*)realloc(Q->items,SIZE*sizeof(int));
         printf("Reallocated the queue size\n");
     }
     int item;
@@ -68,7 +68,7 @@ void displayQueue(queue Q){
 int main(){
     int choice;
     queue Q = (queue)malloc(sizeof(struct QUEUE));
-    Q->items = (int*)malloc(SIZE);
+    Q->items = (int*)malloc(SIZE*sizeof(int));
     Q->front=0;Q->rear=-1;
     while(1){
         printf("\n0.Exit\n1.Insert Rear\n2.Insert Front\n3.Delete Front\n4.Delete Rear\n5.Display Queue\nEnter your choice:");

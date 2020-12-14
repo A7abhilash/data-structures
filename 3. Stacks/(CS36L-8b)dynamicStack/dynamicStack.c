@@ -23,7 +23,7 @@ int isFull(stack S){
 stack push(stack S){
     if(isFull(S)){
         SIZE*=2;
-        S->arr=(int*)realloc(S->arr,SIZE);
+        S->arr=(int*)realloc(S->arr,SIZE*sizeof(int));
         printf("Reallocated the stack size\n");
     }
     printf("Enter the data:");
@@ -66,7 +66,7 @@ void display(stack S){
 int main(){
     stack S =(stack)malloc(sizeof(struct STACK));
     S->top=-1;
-    S->arr=(int*)malloc(SIZE);
+    S->arr=(int*)malloc(SIZE*sizeof(int));
     int choice;
 
     while(1){
