@@ -13,6 +13,7 @@ queue enqueue(queue Q){
     }else{
         printf("Enter the new item:");
         scanf("%d",&Q.items[++Q.rear]);
+        printf("Item enqueued\n");
     }
     return Q;
 }
@@ -21,7 +22,7 @@ queue dequeue(queue Q){
     if(Q.front>Q.rear){
         printf("Queue is empty\n");
     }else{
-        printf("Deleted item: %d\n",Q.items[Q.front++]);
+        printf("Dequeued item: %d\n",Q.items[Q.front++]);
         if(Q.front>Q.rear){
             Q.front=0;
             Q.rear=-1;
