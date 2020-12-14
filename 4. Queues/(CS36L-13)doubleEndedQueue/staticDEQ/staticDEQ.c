@@ -13,6 +13,7 @@ queue insertRear(queue Q){
     }else{
         printf("Enter the new item:");
         scanf("%d",&Q.items[++Q.rear]);
+        printf("Item enqueued\n");
     }
     return Q;
 }
