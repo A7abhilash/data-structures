@@ -1,18 +1,18 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct operandStack{
+struct operatorStack{
     int top;
     char items[20];
 };
-typedef struct operandStack* operandStack;
+typedef struct operatorStack* operatorStack;
 
-void push(char c, operandStack S){
+void push(char c, operatorStack S){
     if(S->top==19) printf("Stack overflow\n");
     else S->items[++S->top]=c;
 }
 
-char pop(operandStack S){
+char pop(operatorStack S){
     if(S->top==-1) printf("Stack underflow\n");
     else return S->items[S->top--];
 }
@@ -57,7 +57,7 @@ int inputPrecedence(char c){
 }
 
 void infixToPostfix(char infix[],char postfix[]){
-    operandStack S = (operandStack)malloc(sizeof(struct operandStack));
+    operatorStack S = (operatorStack)malloc(sizeof(struct operatorStack));
     S->top=-1;
     char c;
     int i=0,j=0;
