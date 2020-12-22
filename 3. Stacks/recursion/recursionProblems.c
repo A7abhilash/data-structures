@@ -31,7 +31,7 @@ void towerOfHanoi(int n,char S[], char T[],char D[]){
         return;
     }
     towerOfHanoi(n-1,S,D,T);
-    printf("%d.Move %d from %s to %s\n",++count,n,S,T);
+    printf("%d.Move %d from %s to %s\n",++count,n,S,D);
     towerOfHanoi(n-1,T,S,D);
 }
 
