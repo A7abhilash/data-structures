@@ -140,7 +140,7 @@ node deleteNode(node R){
             free(nodeToBeDeleted);
         }
     
-    //*CASE 3: If node to be deleted has 2 children
+    //*CASE 4: If node to be deleted has 2 children
     else{
         node IS=nodeToBeDeleted->right, ISP = nodeToBeDeleted;
         //? IS= inorder successor, ISP= inorder successor's parent.
