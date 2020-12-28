@@ -162,13 +162,23 @@ node deleteNode(node R){
     return R;
 }
 
+int heightOfTree(node R){
+    if(R==NULL) return 0;
+    
+    int leftHeight=heightOfTree(R->left);
+    int rightHeight=heightOfTree(R->right);
+
+    if(leftHeight>rightHeight) return leftHeight+1;
+    return rightHeight+1;
+}
+
 int main(){
     int choice,data;
     node root=NULL;
     node nodeToBeSearched=NULL;
     node parentNode=NULL;
     while(1){
-        printf("\n0.Exit\n1.Insert\n2.Display\n3.Search\n4.Delete\nEnter your choice:");
+        printf("\n0.Exit\n1.Insert\n2.Display\n3.Search\n4.Delete\n5.Find height\nEnter your choice:");
         scanf("%d",&choice);
 
         switch(choice){
@@ -192,6 +202,8 @@ int main(){
                     break;
             case 4: root = deleteNode(root);
                     displayTree(root);
+                    break;
+            case 5: printf("Height of the tree: %d\n",heightOfTree(root));
                     break;
             default: printf("Enter proper choice");
         }
