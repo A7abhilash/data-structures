@@ -172,13 +172,23 @@ int heightOfTree(node R){
     return rightHeight+1;
 }
 
+node createCopyOfTree(node R){
+    if(R==NULL) return NULL;
+    node temp=(node)malloc(sizeof(struct NODE));
+    temp=R;
+    temp->left=createCopyOfTree(R->left);
+    temp->right=createCopyOfTree(R->right);
+    temp->data=R->data;
+    return temp;
+}
+
 int main(){
     int choice,data;
     node root=NULL;
     node nodeToBeSearched=NULL;
     node parentNode=NULL;
     while(1){
-        printf("\n0.Exit\n1.Insert\n2.Display\n3.Search\n4.Delete\n5.Find height\nEnter your choice:");
+        printf("\n0.Exit\n1.Insert\n2.Display\n3.Search\n4.Delete\n5.Find height\n6.Create a copy of tree\nEnter your choice:");
         scanf("%d",&choice);
 
         switch(choice){
@@ -204,6 +214,14 @@ int main(){
                     displayTree(root);
                     break;
             case 5: printf("Height of the tree: %d\n",heightOfTree(root));
+                    break;
+            case 6: if(root==NULL){
+                        printf("Tree is empty\n");
+                    }else {
+                        node copy = createCopyOfTree(root);
+                        printf("Copy of the tree created:\n");
+                        displayTree(copy);
+                    }
                     break;
             default: printf("Enter proper choice");
         }
