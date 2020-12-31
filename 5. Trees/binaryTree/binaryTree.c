@@ -168,8 +168,8 @@ int heightOfTree(node R){
     int leftHeight=heightOfTree(R->left);
     int rightHeight=heightOfTree(R->right);
 
-    if(leftHeight>rightHeight) return leftHeight+1;
-    return rightHeight+1;
+    if(leftHeight>rightHeight) return leftHeight;
+    return rightHeight;
 }
 
 node createCopyOfTree(node R){
@@ -182,13 +182,24 @@ node createCopyOfTree(node R){
     return temp;
 }
 
+int findTotalNoOfNodes(node R){
+    if(R==NULL) return 0;
+    return findTotalNoOfNodes(R->left)+1+findTotalNoOfNodes(R->right);
+}
+
+int findTotalNoOfLeaves(node R){
+    if(R==NULL) return 0;
+    if(R->left==NULL && R->right==NULL) return 1;
+    return findTotalNoOfLeaves(R->left)+findTotalNoOfLeaves(R->right);
+}
+
 int main(){
     int choice,data;
     node root=NULL;
     node nodeToBeSearched=NULL;
     node parentNode=NULL;
     while(1){
-        printf("\n0.Exit\n1.Insert\n2.Display\n3.Search\n4.Delete\n5.Find height\n6.Create a copy of tree\nEnter your choice:");
+        printf("\n0.Exit\n1.Insert\n2.Display\n3.Search\n4.Delete\n5.Find height\n6.Create a copy of tree\n7.Find total no. of nodes\n8.Find total no. of leaves\n9.Find total no. of non-leaves\nEnter your choice:");
         scanf("%d",&choice);
 
         switch(choice){
@@ -222,6 +233,12 @@ int main(){
                         printf("Copy of the tree created:\n");
                         displayTree(copy);
                     }
+                    break;
+            case 7: printf("Total no. of nodes: %d\n",findTotalNoOfNodes(root));
+                    break;
+            case 8: printf("Total no. of leaves: %d\n",findTotalNoOfLeaves(root));
+                    break;
+            case 9: printf("Total no. of non-leaves: %d\n",findTotalNoOfNodes(root)-findTotalNoOfLeaves(root));
                     break;
             default: printf("Enter proper choice");
         }
