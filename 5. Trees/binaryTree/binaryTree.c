@@ -168,8 +168,8 @@ int heightOfTree(node R){
     int leftHeight=heightOfTree(R->left);
     int rightHeight=heightOfTree(R->right);
 
-    if(leftHeight>rightHeight) return leftHeight;
-    return rightHeight;
+    if(leftHeight>rightHeight) return leftHeight+1;
+    return rightHeight+1;
 }
 
 node createCopyOfTree(node R){
@@ -224,7 +224,8 @@ int main(){
             case 4: root = deleteNode(root);
                     displayTree(root);
                     break;
-            case 5: printf("Height of the tree: %d\n",heightOfTree(root));
+            case 5: if(root==NULL) printf("Tree is empty\n");
+                    else printf("Height of the tree: %d\n",heightOfTree(root)-1);
                     break;
             case 6: if(root==NULL){
                         printf("Tree is empty\n");
