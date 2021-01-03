@@ -11,7 +11,6 @@ typedef struct NODE* node;
 
 node insertNewNode(node R){
     int i;
-    char direction[10];
     node newNode=(node)malloc(sizeof(struct NODE));
     printf("Enter the data:");
     scanf("%d",&newNode->data);
@@ -164,8 +163,8 @@ int heightOfTree(node R){
     int leftHeight=heightOfTree(R->left);
     int rightHeight=heightOfTree(R->right);
 
-    if(leftHeight>rightHeight) return leftHeight;
-    return rightHeight;
+    if(leftHeight>rightHeight) return leftHeight+1;
+    return rightHeight+1;
 }
 
 int findTotalNoOfNodes(node R){
@@ -210,7 +209,8 @@ int main(){
             case 4: root = deleteNode(root);
                     displayTree(root);
                     break;
-            case 5: printf("Height of the tree: %d\n",heightOfTree(root));
+            case 5: if(root==NULL) printf("Tree is empty\n");
+                    else printf("Height of the tree: %d\n",heightOfTree(root)-1);
                     break;
             case 6: printf("Total no. of nodes: %d\n",findTotalNoOfNodes(root));
                     break;
