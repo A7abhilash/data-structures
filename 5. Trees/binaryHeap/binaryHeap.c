@@ -27,9 +27,9 @@ int rightChildIndex(heap H,int i){
 
 void getMaxElement(heap H){
     if(H->count==0) {
-        printf("Heap is empty");
+        printf("Heap is empty\n");
     }
-    printf("Max element: %d\n",H->arr[0]);
+    else printf("Max element: %d\n",H->arr[0]);
 }
 
 void swap(int *a,int *b){
@@ -114,7 +114,7 @@ int main(){
     int choice;
 
     while(1){
-        printf("\0.Exit\n1.Insert\n2.Display\n3.Delete\nEnter your choice:");
+        printf("\n0.Exit\n1.Insert\n2.Display\n3.Delete\n4.Get max element\nEnter your choice:");
         scanf("%d",&choice);
 
         switch(choice){
