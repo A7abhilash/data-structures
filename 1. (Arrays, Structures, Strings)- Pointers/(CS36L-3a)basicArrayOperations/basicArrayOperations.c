@@ -58,7 +58,7 @@ void display(int a[]){
 void insertByPosition(int a[]){
     int i,pos,element;
     if(NE==SIZE){
-        printf("Array is empty\n");
+        printf("Array is full\n");
         return;
     }
     printf("Enter the position of new element to be inserted:\n");

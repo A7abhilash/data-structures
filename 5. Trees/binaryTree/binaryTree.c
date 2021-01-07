@@ -31,7 +31,7 @@ node insertNewNode(node R){
         else break;
     }
     if(i!=strlen(direction) || currentNode!=NULL){
-        printf("Invalid direction or node already exit at given direction. Try new direction.\n");
+        printf("Invalid direction or node already exist at given direction. Try new direction.\n");
         goto direct;
     }
     if(direction[i-1]=='L' || direction[i-1]=='l') previousNode->left=newNode; 
