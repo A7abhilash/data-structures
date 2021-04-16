@@ -9,10 +9,9 @@ void stringMatch(char T[],char P[]){
     
     for(i=0;i<=n-m;i++){
         for(j=0;j<m;j++){
-            if(P[j]==T[i+j]){
-                count++;
-                continue;
-            }else break;
+            count++;
+            if(P[j]==T[i+j]) continue;
+            else break;
         }
         if(j==m){
             pos= i;

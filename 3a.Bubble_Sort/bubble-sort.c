@@ -13,10 +13,10 @@ void bubbleSort(int arr[],int n)
 		flag=0;
 		for(j=i;j>=0;j--)			// j=0 ; j<n-i-1 ; j++
 		{
+			count++;
 			if(arr[j]>arr[j+1])
 			{
                 flag=1;
-				count++;
 				
 				int temp=arr[j];
 				arr[j]=arr[j+1];
