@@ -4,28 +4,22 @@
 
 void bubbleSort(int arr[],int n)
 {
-	int i,j,flag=0;					// use of variable flag is an OPTIMIZED algorithm.
+	int i,j;				
 	int rounds=0,count=0;
 
 	for(i=1;i<n;i++)				// i=0 ; i<n ; i++ 
 	{
 		rounds++;
-		flag=0;
 		for(j=i;j>=0;j--)			// j=0 ; j<n-i-1 ; j++
 		{
 			count++;
 			if(arr[j]>arr[j+1])
 			{
-                flag=1;
-				
 				int temp=arr[j];
 				arr[j]=arr[j+1];
 				arr[j+1]=temp;
 			}
 		}
-		
-		if(flag==0) //Means that the array has been sorted already!
-			break;
 	}
 	printf("No. of rounds: %d\n",rounds);
 	printf("Sorted Array: \n");
