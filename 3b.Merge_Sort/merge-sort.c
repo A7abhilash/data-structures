@@ -2,6 +2,8 @@
 #include<stdlib.h>
 #include<time.h>
 
+int count=0;
+
 void merge(int arr[],int left,int mid,int right){
 	int i=left;		        // starting index for left subarray
 	int j=mid+1;	        // starting index for right subarray
@@ -9,6 +11,7 @@ void merge(int arr[],int left,int mid,int right){
 	int temp[left+right+1];	//temporary array
 	
 	while(i<=mid && j<=right){
+		count++;
 		if(arr[i]<=arr[j]){
 			temp[k]=arr[i];
 			i++;
@@ -21,19 +24,23 @@ void merge(int arr[],int left,int mid,int right){
 	}
 	
 	while(i<=mid){
+		count++;
 		temp[k]=arr[i];
 		k++;
 		i++;
 	}
 	while(j<=right){
+		count++;
 		temp[k]=arr[j];
 		k++;
 		j++;
 	}
 	
 	int s, n=right+1;
-	for(s=left;s<n;s++)
+	for(s=left;s<n;s++){
+		count++;
 		arr[s]=temp[s];
+	}
 }
 
 void mergeSort(int arr[], int left,int right){
@@ -69,7 +76,7 @@ int main(){
 	printf("Sorted Array: \n");
 	for(i=0;i<n;i++)
 		printf("%d ",arr[i]);
-	// printf("\nCount: %d",count);
+	printf("\nCount: %d",count);
 
 	return 0;
 }
