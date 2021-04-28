@@ -2,12 +2,15 @@
 #include<stdlib.h>
 #include<time.h>
 
+int count=0;
+
 int partition(int arr[],int start,int end){
 	int pivot=arr[end];		// End element is chosen as pivot in our program
 	int pIndex=start;
 	int temp;
 	
 	for(int i=start;i<end;i++){
+		count++;
 		if(arr[i]<=pivot){
 			//swap arr[i] & arr[pIndex]
 			temp=arr[i];
@@ -56,7 +59,7 @@ int main(){
 	printf("Sorted Array: \n");
 	for(i=0;i<n;i++)
 		printf("%d ",arr[i]);
-	// printf("\nCount: %d",count);
+	printf("\nCount: %d",count);
 	
 	return 0;
 }
