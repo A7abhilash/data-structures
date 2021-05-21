@@ -51,8 +51,8 @@ void topologicalSort(graph G){
     }
 
 	int stack[G.V], top = -1;
-	int topologicalOrder[G.V];
-	int i, u, v, count = -1;
+	int topologicalOrder[G.V], order = -1;
+	int i, u, v, count=0;
 
     for (u = 0; u <= G.V; u++){
         if(G.inDegree[u]==0){
@@ -62,8 +62,9 @@ void topologicalSort(graph G){
 
 	for (i = 0; i <= G.V; i++){
 		while(top!=-1){
+            count++;
 			int w = stack[top--];
-			topologicalOrder[++count] = w;
+			topologicalOrder[++order] = w;
 
 			for (v = 0; v <= G.V; v++){
                 if(G.matrix[w][v]==1 && --G.inDegree[v]==0){
@@ -73,15 +74,15 @@ void topologicalSort(graph G){
         }
     }
 
-    // printf("Count: %d\n", count);
-    if(count != G.V){
+    // printf("Order: %d\n", order);
+    if(order != G.V){
 		printf("Graph has cycle\n");
 	}else{
 		printf("Topological Sort: ");
 		for (i = 0; i <= G.V; i++){
 			printf("%d ", topologicalOrder[i]);
 		}
-	    printf("\n");
+        printf("\nCount: %d\n", count);        
 	}
 }
 
