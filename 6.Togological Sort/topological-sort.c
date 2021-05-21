@@ -73,7 +73,7 @@ void topologicalSort(graph G){
         }
     }
 
-    printf("Count: %d\n", count);
+    // printf("Count: %d\n", count);
     if(count != G.V){
 		printf("Graph has cycle\n");
 	}else{
