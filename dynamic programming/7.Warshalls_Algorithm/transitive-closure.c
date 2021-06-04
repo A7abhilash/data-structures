@@ -35,7 +35,7 @@ int main(){
 
 	transitiveClosure(R);
 
-	printf("Transitive closure adjacency matrix of the graph:\n");
+	printf("Transitive closure: Adjacency matrix of the graph:\n");
 	for (i = 0; i < n; i++){
 		for (j = 0; j < n; j++){
 			printf("%d ",R[i][j]);
